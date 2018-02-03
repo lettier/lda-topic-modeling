@@ -1,0 +1,29 @@
+{
+  "name": "lettier-lda-topic-modeling",
+  "authors": [
+    "David Lettier"
+  ],
+  "scripts": {
+    "make-dirs": "mkdir -p build output1 src1",
+    "build-app": "pulp browserify -O --to build/app.js",
+    "copy-static": "cp static/html/index.html build/ && cp static/css/style.css build/ && cp static/png/lettier-logo.png build/",
+    "copy-lda-src": "cp src/Lda.js src/Lda.purs src/ArrayUtils.purs src/DocumentWord.purs src/DocumentProcessing.purs src/Stats.purs src1/",
+    "build-worker-0": "pulp browserify --src-path src1 --build-path output1 --standalone Lda --main Lda -O --skip-entry-point --to output1/_worker.js",
+    "modify-worker-0": "sed -i '/var PS = {};/a self.PS = PS;' output1/_worker.js",
+    "build-worker": "cat src/_worker.js >> output1/_worker.js && cp output1/_worker.js build/Worker.js",
+    "build": "npm run make-dirs && npm run build-app && npm run copy-static && npm run copy-lda-src && npm run build-worker-0 && npm run modify-worker-0 && npm run build-worker",
+    "build-prod": "export NODE_ENV='production' && npm run build"
+  },
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "decimal.js": "^9.0.1"
+  },
+  "devDependencies": {
+    "jslint": "^0.11.0",
+    "pulp": "^11.0.0",
+    "purescript-psa": "^0.5.0",
+    "purescript": "^0.11.1"
+  },
+  "private": true
+}

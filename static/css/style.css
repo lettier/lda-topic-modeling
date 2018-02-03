@@ -1,0 +1,238 @@
+/*
+  (C) 2018 David Lettier
+  lettier.com
+  LDA Topic Modeling
+*/
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  background-color: #edf6ff;
+}
+
+body {
+  background-color: #edf6ff;
+  min-height: 100%;
+}
+
+input[type=range].slider {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 6.45px 0;
+}
+input[type=range].slider:focus {
+  outline: none;
+}
+input[type=range].slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10.1px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+  background: #b9c5da;
+  border-radius: 0px;
+  border: 0px solid #010101;
+}
+input[type=range].slider::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0px solid #001e00;
+  height: 23px;
+  width: 16px;
+  border-radius: 0px;
+  background: #00d1b2;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6.45px;
+}
+input[type=range].slider:focus::-webkit-slider-runnable-track {
+  background: #c6d0e1;
+}
+input[type=range].slider::-moz-range-track {
+  width: 100%;
+  height: 10.1px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+  background: #b9c5da;
+  border-radius: 0px;
+  border: 0px solid #010101;
+}
+input[type=range].slider::-moz-range-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0px solid #001e00;
+  height: 23px;
+  width: 16px;
+  border-radius: 0px;
+  background: #00d1b2;
+  cursor: pointer;
+}
+input[type=range].slider::-ms-track {
+  width: 100%;
+  height: 10.1px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range].slider::-ms-fill-lower {
+  background: #acbad3;
+  border: 0px solid #010101;
+  border-radius: 0px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+}
+input[type=range].slider::-ms-fill-upper {
+  background: #b9c5da;
+  border: 0px solid #010101;
+  border-radius: 0px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+}
+input[type=range].slider::-ms-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0px solid #001e00;
+  height: 23px;
+  width: 16px;
+  border-radius: 0px;
+  background: #00d1b2;
+  cursor: pointer;
+  height: 10.1px;
+}
+input[type=range].slider:focus::-ms-fill-lower {
+  background: #b9c5da;
+}
+input[type=range].slider:focus::-ms-fill-upper {
+  background: #c6d0e1;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.padding-top-10 {
+  padding-top: 20px;
+}
+
+.padding-top-20 {
+  padding-top: 20px;
+}
+
+.input[disabled], .textarea[disabled] {
+  background-color: #b9c5da;
+  border-color: #f5f5f5;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #444444;
+}
+
+.container {
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.box {
+  background-color: #fff;
+  border-radius: 0px;
+  display: block;
+  padding: 10px;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.sidebar-slider-text-label-counter-container {
+  width: 75px;
+}
+
+.remove-document-buton {
+  margin-top: 2.5px;
+}
+
+.add-document-button {
+  margin-top: 5px;
+}
+
+.document-input {
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+}
+
+.no-flex-grow {
+  flex-grow: 0;
+}
+
+.plot {
+  margin-bottom: 20px;
+}
+
+.hour-glass-column {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.document-id {
+  padding-top: 10px;
+}
+
+.min-width-100-percent {
+  min-width: 100%;
+}
+
+.min-height-100-percent {
+  min-height: 100%;
+}
+
+.max-width-80-px {
+  max-width: 80px;
+}
+
+.min-width-50-px {
+  min-width: 50px;
+}
+
+.max-width-50-px {
+  max-width: 50px;
+}
+
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.padding-left-right-0-px {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.padding-left-0-px {
+  padding-left: 0px;
+}
+
+.padding-right-2-px {
+  padding-right: 2px;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.background-color-gray {
+  background-color: #ecf0f1;
+}
+
+.background-color-yellow {
+  background-color: #f6e58d;
+}
+
+.background-color-orange {
+  background-color: #ffbe76;
+}
+
+.background-color-red {
+  background-color: #ff7979;
+}
